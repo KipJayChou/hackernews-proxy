@@ -110,7 +110,7 @@ async function handler(req: Request): Promise<Response> {
   // 对于其他路径，先检查Cookie认证
   const sessionCookie = req.headers.get("Cookie")?.includes("session=authenticated");
   if (!sessionCookie) {
-    return new Response("Not logged in, go to /login, bitch.", {
+    return new Response("Not logged in, go to /login.", {
       status: 401,
       headers: { "Location": "/login?goto=" + encodeURIComponent(url.pathname + url.search) }
     });
